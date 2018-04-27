@@ -112,6 +112,8 @@ class CustomerController extends ControllerBase
         }
 
         $customer = new Customer();
+		$customer->setusername($this->request->getPost("username"));
+		$customer->setpassword($this->security->hash($this->request->getPost("password")));
         $customer->setfirstname($this->request->getPost("firstname"));
         $customer->setsurname($this->request->getPost("surname"));
         $customer->setdateofbirth($this->request->getPost("dateofbirth"));
@@ -119,7 +121,11 @@ class CustomerController extends ControllerBase
         $customer->setstreet($this->request->getPost("street"));
         $customer->setcity($this->request->getPost("city"));
         $customer->setphonenumber($this->request->getPost("phonenumber"));
-        
+		$customer->setrole("Registered Customer");
+		$customer->setstatus("Active");
+		$customer->setvalidationkey(md5($this->request->getPost("username") . uniqid()));
+		$customer->setcreatedat((new DateTime())->format("Y-m-d H:i:s"));//will set to the current date/time
+				
 
         if (!$customer->save()) {
             foreach ($customer->getMessages() as $message) {
@@ -171,7 +177,8 @@ class CustomerController extends ControllerBase
 
             return;
         }
-
+		$customer->setusername($this->request->getPost("username"));
+		$customer->setpassword($this->security->hash($this->request->getPost("password")));
         $customer->setfirstname($this->request->getPost("firstname"));
         $customer->setsurname($this->request->getPost("surname"));
         $customer->setdateofbirth($this->request->getPost("dateofbirth"));
