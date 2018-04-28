@@ -1,6 +1,4 @@
 <?php
-use Phalcon\Validation;
-use Phalcon\Validation\Validator\Uniqueness as UniquenessValidator;
 class Customer extends \Phalcon\Mvc\Model
 {
 
@@ -13,19 +11,6 @@ class Customer extends \Phalcon\Mvc\Model
      */
     protected $id;
 	
-	/**
-     *
-     * @var string
-     * @Column(column="username", type="string", length=30, nullable=true)
-     */
-    protected $username;
-
-    /**
-     *
-     * @var string
-     * @Column(column="password", type="string", length=255, nullable=true)
-     */
-    protected $password;
 
     /**
      *
@@ -75,36 +60,7 @@ class Customer extends \Phalcon\Mvc\Model
      * @Column(column="phonenumber", type="string", length=25, nullable=true)
      */
     protected $phonenumber;
-	
-	protected $role;
 
-    /**
-     *
-     * @var string
-     * @Column(column="validationkey", type="string", length=255, nullable=true)
-     */
-    protected $validationkey;
-
-    /**
-     *
-     * @var string
-     * @Column(column="status", type="string", length=255, nullable=true)
-     */
-    protected $status;
-
-    /**
-     *
-     * @var string
-     * @Column(column="createdat", type="string", nullable=true)
-     */
-    protected $createdat;
-
-    /**
-     *
-     * @var string
-     * @Column(column="updatedat", type="string", nullable=true)
-     */
-    protected $updatedat;
 
     /**
      * Method to set the value of field id
@@ -119,32 +75,7 @@ class Customer extends \Phalcon\Mvc\Model
         return $this;
     }
 
-    /**
-     * Method to set the value of field username
-     *
-     * @param string $username
-     * @return $this
-     */
-
-    public function setUsername($username)
-    {
-        $this->username = $username;
-
-        return $this;
-    }
-
-    /**
-     * Method to set the value of field password
-     *
-     * @param string $password
-     * @return $this
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-
-        return $this;
-    }
+    
     /**
      * Method to set the value of field firstname
      *
@@ -236,65 +167,7 @@ class Customer extends \Phalcon\Mvc\Model
 
         return $this;
     }
-	public function setRole($role)
-    {
-        $this->role = $role;
-
-        return $this;
-    }
-
-    /**
-     * Method to set the value of field validationkey
-     *
-     * @param string $validationkey
-     * @return $this
-     */
-    public function setValidationkey($validationkey)
-    {
-        $this->validationkey = $validationkey;
-
-        return $this;
-    }
-
-    /**
-     * Method to set the value of field status
-     *
-     * @param string $status
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->status = $status;
-
-        return $this;
-    }
-
-    /**
-     * Method to set the value of field createdat
-     *
-     * @param string $createdat
-     * @return $this
-     */
-    public function setCreatedat($createdat)
-    {
-        $this->createdat = $createdat;
-
-        return $this;
-    }
-
-    /**
-     * Method to set the value of field updatedat
-     *
-     * @param string $updatedat
-     * @return $this
-     */
-    public function setUpdatedat($updatedat)
-    {
-        $this->updatedat = $updatedat;
-
-        return $this;
-    }
-
+	
     /**
      * Returns the value of field id
      *
@@ -305,26 +178,6 @@ class Customer extends \Phalcon\Mvc\Model
         return $this->id;
     }
 	
-	/**
-     * Returns the value of field username
-     *
-     * @return string
-     */
-	 
-    public function getUsername()
-    {
-        return $this->username;
-    }
-
-    /**
-     * Returns the value of field password
-     *
-     * @return string
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
     /**
      * Returns the value of field firstname
      *
@@ -395,56 +248,6 @@ class Customer extends \Phalcon\Mvc\Model
         return $this->phonenumber;
     }
 
-	/**
-     * Returns the value of field role
-     *
-     * @return string
-     */
-    public function getRole()
-    {
-        return $this->role;
-    }
-
-    /**
-     * Returns the value of field validationkey
-     *
-     * @return string
-     */
-    public function getValidationkey()
-    {
-        return $this->validationkey;
-    }
-
-    /**
-     * Returns the value of field status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->status;
-    }
-
-    /**
-     * Returns the value of field createdat
-     *
-     * @return string
-     */
-    public function getCreatedat()
-    {
-        return $this->createdat;
-    }
-
-    /**
-     * Returns the value of field updatedat
-     *
-     * @return string
-     */
-    public function getUpdatedat()
-    {
-        return $this->updatedat;
-    }
-
     /**
      * Initialize method for model.
      */
@@ -485,12 +288,5 @@ class Customer extends \Phalcon\Mvc\Model
     {
         return parent::findFirst($parameters);
     }
-	public function validation()
-	{
-	   $validator= new Validation();
-	   $uValidator = new UniquenessValidator(["message" => "this Username has already been chosen"]);
-	   $validator->add('username', $uValidator);
-	   return $this->validate($validator);
-	}
 
 }
