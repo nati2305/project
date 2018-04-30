@@ -48,6 +48,13 @@ class Project extends \Phalcon\Mvc\Model
     protected $finish;
 
     /**
+     *
+     * @var string
+     * @Column(column="projectpic", type="string", nullable=true)
+     */
+    protected $projectpic;
+
+    /**
      * Method to set the value of field id
      *
      * @param integer $id
@@ -126,6 +133,19 @@ class Project extends \Phalcon\Mvc\Model
     }
 
     /**
+     * Method to set the value of field projectpic
+     *
+     * @param string $projectpic
+     * @return $this
+     */
+    public function setProjectpic($projectpic)
+    {
+        $this->projectpic = $projectpic;
+
+        return $this;
+    }
+
+    /**
      * Returns the value of field id
      *
      * @return integer
@@ -186,6 +206,16 @@ class Project extends \Phalcon\Mvc\Model
     }
 
     /**
+     * Returns the value of field projectpic
+     *
+     * @return string
+     */
+    public function getProjectpic()
+    {
+        return $this->projectpic;
+    }
+
+    /**
      * Initialize method for model.
      */
     public function initialize()
@@ -194,16 +224,6 @@ class Project extends \Phalcon\Mvc\Model
         $this->setSource("Project");
         $this->belongsTo('customerid', '\Customer', 'id', ['alias' => 'Customer']);
         $this->belongsTo('designerid', '\Designer', 'id', ['alias' => 'Designer']);
-    }
-
-    /**
-     * Returns table name mapped in the model.
-     *
-     * @return string
-     */
-    public function getSource()
-    {
-        return 'Project';
     }
 
     /**
@@ -226,6 +246,16 @@ class Project extends \Phalcon\Mvc\Model
     public static function findFirst($parameters = null)
     {
         return parent::findFirst($parameters);
+    }
+
+    /**
+     * Returns table name mapped in the model.
+     *
+     * @return string
+     */
+    public function getSource()
+    {
+        return 'project';
     }
 
 }

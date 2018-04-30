@@ -45,6 +45,8 @@
             <td><?php echo $project->getDesignerid() ?></td>
             <td><?php echo $project->getPrice() ?></td>
             <td><?php echo $project->getFinish() ?></td>
+			<td><img class="img-responsive center-block" height="200" width="100" src="data:image/jpeg;base64,<?php echo $project->getProjectpic() ?>">
+			</td>
 
                 <td><?php echo $this->tag->linkTo(["Project/edit/" . $project->getId(), "Edit"]); ?></td>
                 <td><?php echo $this->tag->linkTo(["Project/delete/" . $project->getId(), "Delete"]); ?></td>

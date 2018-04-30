@@ -18,15 +18,21 @@ class CustomerController extends ControllerBase
 	/**
      * Searches for Customer
      */
-    public function searchAction()
+    public function searchAction($params=null)
     {
         $numberPage = 1;
         if ($this->request->isPost()) {
             $query = Criteria::fromInput($this->di, 'Customer', $_POST);
             $this->persistent->parameters = $query->getParams();
         } else {
-            $numberPage = $this->request->getQuery("page", "int");
-        }
+			if (isset ($params)) {
+				$query = Criteria :: fromInput($this->di, "Customer", $params);
+				$this->persistent->parameters =$query->getParams();
+			}
+			else {
+				$numberPage = $this->request->getQuery("page", "int");
+			}
+		}
 
         $parameters = $this->persistent->parameters;
         if (!is_array($parameters)) {

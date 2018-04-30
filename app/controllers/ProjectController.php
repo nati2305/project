@@ -111,10 +111,11 @@ class ProjectController extends ControllerBase
 
         $project = new Project();
         $project->setdescription($this->request->getPost("description"));
-        $project->setcustomerid($this->request->getPost("customerid"));
-        $project->setdesignerid($this->request->getPost("designerid"));
+       // $project->setcustomerid($this->request->getPost("customerid"));
+        //$project->setdesignerid($this->request->getPost("designerid"));
         $project->setprice($this->request->getPost("price"));
         $project->setfinish($this->request->getPost("finish"));
+		$project->setProjectPic(base64_encode(file_get_contents($this->request->getUploadedFiles()[0]->getTempName())));
         
 
         if (!$project->save()) {

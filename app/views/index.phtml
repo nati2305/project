@@ -16,16 +16,21 @@
       <a class="navbar-brand" href="#">Fancy-schmancy</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="index">Search</a></li>
-      <li><a href="../customer/new">New Customer</a></li>
-      <li><a href="../search">Customers list</a></li>
+      <li><a href="/shop/customer/index">Search</a></li>
+      <li><a href="/shop/customer/new">New Customer</a></li>
+      <li><a href="/shop/customer/search">Customers list</a></li>
+	  <li><a href="/shop/project/search">Projects</a></li>
+	  <li><a href="/shop/designer/search">Designers</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="../user/new"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="/shop/user/new"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="/shop/user/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
 	</div>
 	</nav>
+	
+
+	
         <div class="container">
             <?php echo $this->getContent(); ?>
         </div>

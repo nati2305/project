@@ -137,7 +137,7 @@ class UserController extends ControllerBase
         if (!$this->request->isPost()) {
             $this->dispatcher->forward([
                 'controller' => "user",
-                'action' => 'index'
+                'action' => 'login'
             ]);
 
             return;
@@ -168,11 +168,11 @@ class UserController extends ControllerBase
             return;
         }
 
-        $this->flash->success("user was created successfully");
+        $this->flash->success("user was created successfully, please log in");
 
         $this->dispatcher->forward([
             'controller' => "user",
-            'action' => 'index'
+            'action' => 'login'
         ]);
     }
 
@@ -282,6 +282,7 @@ class UserController extends ControllerBase
         ]);
     }
 	
+
 	public function logoutAction()
 	{
 		$this->session->destroy();
