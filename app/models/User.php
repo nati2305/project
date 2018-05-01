@@ -1,6 +1,8 @@
 <?php
 use Phalcon\Validation;
 use Phalcon\Validation\Validator\Uniqueness as UniquenessValidator;
+
+
 class User extends \Phalcon\Mvc\Model
 {
 
@@ -256,6 +258,13 @@ class User extends \Phalcon\Mvc\Model
         return $this->password;
     }
 
+	public function setConfirmPassword($password)
+    {
+        $this->confirmpassword = $password;
+
+        return $this;
+    }
+
     /**
      * Returns the value of field firstname
      *
@@ -376,12 +385,13 @@ class User extends \Phalcon\Mvc\Model
     {
         return parent::findFirst($parameters);
     }
+
 	public function validation()
 	{
 	   $validator= new Validation();
 	   $uValidator = new UniquenessValidator(["message" => "this userName has already been chosen"]);
+	   
 	   $validator->add('username', $uValidator);
 	   return $this->validate($validator);
 	}
-
 }

@@ -10,6 +10,7 @@ use Phalcon\Flash\Direct as Flash;
 use Phalcon\Mvc\Dispatcher as Dispatcher;
 use Phalcon\Events\Manager as EventsManager;
 
+
 /**
  * Shared configuration service
  */

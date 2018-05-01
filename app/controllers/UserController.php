@@ -146,6 +146,7 @@ class UserController extends ControllerBase
         $user = new User();
         $user->setusername($this->request->getPost("username"));
 		$user->setpassword($this->security->hash($this->request->getPost("password")));
+		$user->setconfirmpassword($this->request->getPost("confirmpassword"));
         $user->setfirstname($this->request->getPost("firstname"));
         $user->setsurname($this->request->getPost("surname"));
         $user->setemailAddress($this->request->getPost("emailAddress"));

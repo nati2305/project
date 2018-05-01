@@ -27,10 +27,9 @@
             <tr>
                 <th>Id</th>
             <th>Description</th>
-            <th>Customerid</th>
-            <th>Designerid</th>
             <th>Price</th>
-            <th>Finish</th>
+            <th>Release Date</th>
+			<th>Photos</th>
 
                 <th></th>
                 <th></th>
@@ -41,8 +40,6 @@
             <tr>
                 <td><?php echo $project->getId() ?></td>
             <td><?php echo $project->getDescription() ?></td>
-            <td><?php echo $project->getCustomerid() ?></td>
-            <td><?php echo $project->getDesignerid() ?></td>
             <td><?php echo $project->getPrice() ?></td>
             <td><?php echo $project->getFinish() ?></td>
 			<td><img class="img-responsive center-block" height="200" width="100" src="data:image/jpeg;base64,<?php echo $project->getProjectpic() ?>">
