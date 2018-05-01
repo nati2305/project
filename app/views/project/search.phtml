@@ -27,6 +27,7 @@
             <tr>
                 <th>Id</th>
             <th>Description</th>
+			<th>Customer</th>
             <th>Price</th>
             <th>Release Date</th>
 			<th>Photos</th>
@@ -38,8 +39,9 @@
         <tbody>
         <?php foreach ($page->items as $project): ?>
             <tr>
-                <td><?php echo $project->getId() ?></td>
+            <td><?php echo $project->getId() ?></td>
             <td><?php echo $project->getDescription() ?></td>
+			<td><?php echo $project->getcustomerid() ?></td>
             <td><?php echo $project->getPrice() ?></td>
             <td><?php echo $project->getFinish() ?></td>
 			<td><img class="img-responsive center-block" height="200" width="100" src="data:image/jpeg;base64,<?php echo $project->getProjectpic() ?>">
