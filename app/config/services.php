@@ -113,7 +113,7 @@ $di->setShared('session', function () {
 
     return $session;
 });
-/*
+
 $di->set('dispatcher', function () use ($di) {
 	$eventsManager = new EventsManager;
 	//Check if the user is allowed to access certain action using the SecurityPlugin
@@ -124,4 +124,4 @@ $di->set('dispatcher', function () use ($di) {
 	$dispatcher->setEventsManager($eventsManager);
 	return $dispatcher;
 });
-*/
+
