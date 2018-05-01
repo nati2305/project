@@ -4,6 +4,10 @@ div.page-header {
 	margin: 40px 40px 40px 40px;
     border: 3px solid #73AD21;
 }
+div.container1 {
+    position: static;
+	margin: 40px 100px 40px 550px;
+}
 h1.m1 {
     position: static;
 	margin: 15px 5px 5px 40px;
@@ -14,7 +18,6 @@ h2.m {
 }
 </style>
 <head>
-  <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -31,6 +34,15 @@ h2.m {
     </h1>
 	<h2 class="m"> We will create anything for you </h2>
 </div>
+
+  <div class="container1">
+		<div class="form-group">
+			<button onclick="location.href = '../../shop/user/new';" id="myButton" class="float-left submit-button" >Register Now</button>
+
+		</div>
+	</div>
+
+
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -43,15 +55,15 @@ h2.m {
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-        <img src="../../../shop/public/img/home.jpg" alt="Los Angeles" style="width:100%;">
+        <img src="../../../shop/public/img/home.jpg" style="width:100%;">
       </div>
 
       <div class="item">
-        <img src="../../../shop/public/img/home2.jpg" alt="Chicago" style="width:100%;">
+        <img src="../../../shop/public/img/home2.jpg" style="width:100%;">
       </div>
     
       <div class="item">
-        <img src="../../../shop/public/img/home5.jpg" alt="New york" style="width:100%;">
+        <img src="../../../shop/public/img/home5.jpg"  style="width:100%;">
       </div>
     </div>
 
@@ -72,73 +84,4 @@ h2.m {
 
 <?php echo $this->getContent(); ?>
 
-<?php
-    echo $this->tag->form(
-        [
-            "user/create",
-            "autocomplete" => "off",
-            "class" => "form-horizontal"
-        ]
-    );
-?>
-
-  <form class="modal-content" action="/shop/user/login">
-    <div class="container">
-		<div class="form-group">
-			<label for="fieldUsername" class="col-sm-2 control-label">Username</label>
-			<div class="col-sm-10">
-				<?php echo $this->tag->textField(["username", "size" => 30, "class" => "form-control", "id" => "fieldUsername"]) ?>
-			</div>
-		</div>
-
-		<div class="form-group">
-			<label for="fieldPassword" class="col-sm-2 control-label">Password</label>
-			<div class="col-sm-10">
-			<?php echo $this->tag->passwordField(["password", "size" => 30, "class" => "form-control", "id" => "fieldPassword"]) ?>
-			</div>
-		</div>
-
-		<div class="form-group">
-			<label for="fieldPassword" class="col-sm-2 control-label">Confirm Password</label>
-			<div class="col-sm-10">
-				<?php echo $this->tag->passwordField(["confirmpassword", "size" => 30, "class" => "form-control", "id" => "fieldPassword"]) ?>
-			</div>
-		</div>
-
-
-		<div class="form-group">
-			<label for="fieldFirstname" class="col-sm-2 control-label">Firstname</label>
-			<div class="col-sm-10">
-				<?php echo $this->tag->textField(["firstname", "size" => 30, "class" => "form-control", "id" => "fieldFirstname"]) ?>
-			</div>
-		</div>
-
-		<div class="form-group">
-			<label for="fieldSurname" class="col-sm-2 control-label">Surname</label>
-			<div class="col-sm-10">
-				<?php echo $this->tag->textField(["surname", "size" => 30, "class" => "form-control", "id" => "fieldSurname"]) ?>
-			</div>
-		</div>
-
-		<div class="form-group">
-			<label for="fieldEmailaddress" class="col-sm-2 control-label">EmailAddress</label>
-			<div class="col-sm-10">
-				<?php echo $this->tag->textField(["emailAddress", "size" => 30, "class" => "form-control", "id" => "fieldEmailaddress"]) ?>
-			</div>
-		</div>
-
-
-		<div class="form-group">
-			<div class="col-sm-offset-2 col-sm-10">
-				<?php echo $this->tag->submitButton(["Save", "class" => "btn btn-default"]) ?>
-				
-			</div>
-		</div>
-	</div>
-	</form>
-</div>
-
-
-
-<?php echo $this->tag->endForm(); ?>
 

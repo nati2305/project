@@ -19,6 +19,12 @@ class UserController extends ControllerBase
 
 	}
 	
+		public function logoutAction()
+	{
+		$this->session->destroy();
+		$this->flash->success('See you next time!');
+		return $this->dispatcher->forward(["controller" => "index","action"=> "index"]);
+	}
 	public function authorizeAction()
 	{
 		$username = $this->request->getPost('username');
@@ -284,11 +290,5 @@ class UserController extends ControllerBase
     }
 	
 
-	public function logoutAction()
-	{
-		$this->session->destroy();
-		$this->flash->success('Goodbye!');
-		return $this->dispatcher->forward(["controller" => "index","action"=> "index"]);
-	}
 
 }

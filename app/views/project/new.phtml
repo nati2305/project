@@ -43,7 +43,11 @@
     <label for="fieldCustomerid" class="col-sm-2 control-label">customerid</label>
     <div class="col-sm-10">
         <?php echo $this->tag->textField(["customerid", "type" => "number", "class" => "form-control", "id" => "fieldCustomerid"]) ?>
+		<?php $sql="SELECT * FROM customer";
+		echo "<name ='customerid'>";
 
+		echo "</select>";
+		?>
 </div>
 
 
